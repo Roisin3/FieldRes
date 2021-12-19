@@ -1,0 +1,22 @@
+<h2>Event: <%= @event.title %></h2>
+
+<h2>Start Date and Time: <%= @event.start %></h2>
+
+<h2>End Date and Time: <%= @event.finish %></h2>
+
+
+<h2>
+    <%= @event.fields.each do |f| %>
+        Field: <%= f.name  %>
+        <%= f.requirements.each do |reqs| %>
+            Goals: <%= reqs.goals %>
+        <% end %>
+    <% end %>
+</h2>
+
+<%= link_to 'Edit Event', edit_event_path(@event) %><br>
+<%= link_to 'Your Events', '/events' %><br>
+
+<%= render 'layouts/footer' %>
+
+

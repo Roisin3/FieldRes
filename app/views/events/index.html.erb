@@ -1,0 +1,27 @@
+<h1> All events </h1>
+
+<table class='table'>
+        <tr>
+            <td><strong>Title</strong></td>
+            <td><strong>Start Time</strong></td>
+            <td><strong>End Time</strong></td>
+        </tr>
+    <%= @events.each do |event| %>
+        <tr>
+            <td><%= link_to "#{event.title}", "/events/#{event.id}/edit" %></td>
+            <td><%= event.start %></td>
+            <td><%= event.finish %></td>
+        </tr>
+    <% end %>
+</table>
+
+<%= @events.map do |e| %>
+    <%= link_to "Profile", "users/#{e.user_id}" %>
+    <% break %>
+<% end %>
+
+<a href="/events/new">New Event</a>
+
+
+<%= render 'layouts/footer' %>
+
